@@ -1,0 +1,3 @@
+[INFO ] 2024-05-27 15:18:07.896 [main] LoggerLoad - <-------Testing Info-------->
+[WARN ] 2024-05-27 15:18:07.899 [main] LoggerLoad - <-------Testing Warn------->
+[ERROR] 2024-05-27 15:18:07.899 [main] LoggerLoad - <-------Testing Error------->
