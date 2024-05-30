@@ -20,18 +20,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
 	
-	public static int numberOfRows;
+	//public static int numberOfRows;
 
 	public List<Map<String, String>> getData(String sheetName){
 
 		//String path = System.getProperty("user.dir")+"/src/test/resources/test_data/TestData.xlsx";
+		
 		ConfigReader config =  new ConfigReader();
 		
 		String path = config.getExcelpath();
-		
-		
-		
-		 
+	
 		File Excelfile = new File(path);
 		
 		FileInputStream Fis = null;
@@ -74,7 +72,7 @@ public class ExcelReader {
 		Row row;
 		Cell cell;
 
-		numberOfRows = sheet.getLastRowNum();
+		int numberOfRows = sheet.getLastRowNum();
 
 		List<Map<String, String>> excelRows = new ArrayList<Map<String, String>>();
 
@@ -83,8 +81,6 @@ public class ExcelReader {
 			row = sheet.getRow(currentRow);
 
 			int numberOfColumns = row.getLastCellNum();
-			
-			LoggerLoad.info("Opening home col "+numberOfColumns);
 
 			LinkedHashMap<String, String> columnMapdata = new LinkedHashMap<String, String>();
 
@@ -98,19 +94,12 @@ public class ExcelReader {
 				}
 
 				excelRows.add(columnMapdata); 
-		
+				
 		}
 
 		return excelRows;
 	}
-
-	public int countRow() {
-
-		return numberOfRows;
-	}
-
-		
-		
+			
 	}
 
 	

@@ -108,7 +108,7 @@ public class ConfigReader {
 			return excelPath;
 
 		else
-			throw new RuntimeException("browser not specified in the config.properties file");
+			throw new RuntimeException("excel path not specified in the config.properties file");
 
 	}
 
