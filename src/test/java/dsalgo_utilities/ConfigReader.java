@@ -98,5 +98,18 @@ public class ConfigReader {
 			throw new RuntimeException("browser not specified in the config.properties file");
 
 	}
+	
+	public String getExcelpath() {
+
+		String excelPath= properties.getProperty("excel.path");
+
+		if(excelPath != null)
+
+			return excelPath;
+
+		else
+			throw new RuntimeException("excel path not specified in the config.properties file");
+
+	}
 
 }
