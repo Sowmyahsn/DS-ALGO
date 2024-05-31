@@ -113,6 +113,8 @@ public class SignIn {
 	public void the_user_clicks_on_login_button() {
 	    
 		signInPOM.getLoginBtn().click();
+		
+		LoggerLoad.info(" User clicks on login button");
 	    
 	}
 
@@ -170,13 +172,17 @@ public class SignIn {
 	public void the_user_clicks_on_sign_out_button() {
 		
 		signInPOM.getNavbarSignOutBtn().click();
+		
+		LoggerLoad.info(" User clicks on sign out button");
 	        
 	}
 
 	@When("The user clicks on Register button in sign in page")
 	public void the_user_clicks_on_register_button_in_sign_in_page() {
 		
-		signInPOM.getRegisterBtnInSigninPage().click();    
+		signInPOM.getRegisterBtnInSigninPage().click(); 
+		
+		LoggerLoad.info(" User clicks on register button in sign in page");
 	    
 	}
 

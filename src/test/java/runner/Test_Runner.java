@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 			
 			publish= true ,
 			
-			tags = "@signin", // tags from feature file
+			tags = "@all", // tags from feature file
 			
 			features = {"src/test/resources/features"}, // location of feature files
 			
