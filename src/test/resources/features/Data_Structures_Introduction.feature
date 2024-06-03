@@ -61,3 +61,10 @@ Background:
       | SheetName  | RowNumber 	|
       | Pythoncode |     0 			|
       | Pythoncode |     1 			|  		
+      
+	@integration
+  Scenario: Validate sign out button from Data Structures - Introduction module  
+    
+  	When The user clicks on Sign out button
+    Then The user should be redirected to Home Page with the message "Logged out successfully"
+    

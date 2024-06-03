@@ -40,8 +40,7 @@ Background:
       | SignIn 			|     0 			|
       | SignIn 			|     1 			|
       | SignIn 			|     2 			|
-      | SignIn 			|     3 			|
-     
+   
   @integration
   Scenario: Validate sign in page to register page navigation
   
