@@ -346,15 +346,13 @@ public class LinkedList {
 	}
 
 @When("The user enters invalid python code from excel sheet {string} and row number {int} of Linkedlist module")
-public void the_user_enters_invalid_python_code_from_excel_sheet_and_row_number_of_linkedlist_module(String sheetName, Integer rowNumber) {
+public void the_user_enters_invalid_python_code_from_excel_sheet_and_row_number_of_linkedlist_module(String sheetName, Integer rowNumber) throws InterruptedException {
 	reader = new ExcelReader();
 	
 	List<Map<String, String>> testdata = reader.getData(sheetName);
 
 	String invalidCode = testdata.get(rowNumber).get("Invalid code");
-	
 	dsLListPOM.linkedlistTryEditorTextarea().sendKeys(invalidCode);
-
 	LoggerLoad.info("Entering invalid python code "+invalidCode);
 }
 
@@ -389,7 +387,7 @@ public void the_user_should_see_an_alert_to_signal_bad_input_in_linkedlist_modul
 	}   
 
 @When("The user enters valid python code from excel sheet {string} and row number {int} of Linkedlist module")
-public void the_user_enters_valid_python_code_from_excel_sheet_and_row_number_of_linkedlist_module(String sheetName, Integer rowNumber) {
+public void the_user_enters_valid_python_code_from_excel_sheet_and_row_number_of_linkedlist_module(String sheetName, Integer rowNumber) throws InterruptedException {
 	reader = new ExcelReader();
 	
 	List<Map<String, String>> testdata = reader.getData(sheetName);
@@ -397,7 +395,7 @@ public void the_user_enters_valid_python_code_from_excel_sheet_and_row_number_of
 	String validCode = testdata.get(rowNumber).get("Valid code");
 	
 	dsLListPOM.linkedlistTryEditorTextarea().sendKeys(validCode);
-
+	Thread.sleep(2000);
 	expectedResult = testdata.get(rowNumber).get("Result for valid code");
 
 	LoggerLoad.info("Entering valid code "+validCode+" and the corresponding expected result is : "+ expectedResult);
