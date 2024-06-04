@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -19,16 +22,16 @@ import io.cucumber.java.en.When;
 
 public class DataStructuresIntroduction {
 	
-	DataStructuresIntroductionPage dsIntroPOM;
+	DataStructuresIntroductionPage dsIntroPOM = new DataStructuresIntroductionPage();
 	
-	ExcelReader reader;
+	ExcelReader reader = new ExcelReader();
+	
+	JavascriptExecutor javaScript;
 	
 	private String expectedResult;
 
 	@Given("The user goes to Data Structures - Introduction page")
 	public void the_user_goes_to_data_structures_introduction_page() {
-		
-		dsIntroPOM = new DataStructuresIntroductionPage();
 		
 		dsIntroPOM.getGetStartedBtnForDataStructuresIntroPage().click();
 		
@@ -122,6 +125,10 @@ public class DataStructuresIntroduction {
 	@When("The user clicks on Try here button")
 	public void the_user_clicks_on_try_here_button() {
 		
+		javaScript = (JavascriptExecutor)Webdriver_Manager.getDriver();
+		
+		javaScript.executeScript("arguments[0].scrollIntoView(true)", dsIntroPOM.getTryHereBtn());
+		
 		dsIntroPOM.getTryHereBtn().click();
 		
 		LoggerLoad.info(" User clicks on Try here button");
@@ -179,11 +186,13 @@ public class DataStructuresIntroduction {
 	@When("The user enters invalid python code from excel sheet {string} and row number {int}")
 	public void the_user_enters_invalid_python_code_from_excel_sheet_and_row_number(String sheetName, Integer rowNumber) {
 		
-		reader = new ExcelReader();
-		
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String invalidCode = testdata.get(rowNumber).get("Invalid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+		
+		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(invalidCode);
 
@@ -193,12 +202,14 @@ public class DataStructuresIntroduction {
 	
 	@When("The user enters valid python code from excel sheet {string} and row number {int}")
 	public void the_user_enters_valid_python_code_from_excel_sheet_and_row_number(String sheetName, Integer rowNumber) {
-			
-		reader = new ExcelReader();
 		
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String validCode = testdata.get(rowNumber).get("Valid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+		
+		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(validCode);
 
