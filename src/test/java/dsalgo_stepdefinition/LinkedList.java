@@ -36,12 +36,6 @@ public class LinkedList {
 	public void the_user_goes_to_linked_list_page() {
 
 		dsLListPOM = new LinkedListPage();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		dsLListPOM.getStartedBtnForLinkedListPage().click();
 		String currentUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
