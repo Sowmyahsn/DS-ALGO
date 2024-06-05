@@ -193,7 +193,7 @@ public class DataStructuresIntroduction {
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
 		
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			
 		} catch (InterruptedException e) {
 			
@@ -218,7 +218,7 @@ public class DataStructuresIntroduction {
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
 		
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			
 		} catch (InterruptedException e) {
 			
