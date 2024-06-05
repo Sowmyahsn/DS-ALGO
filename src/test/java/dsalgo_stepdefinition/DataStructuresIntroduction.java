@@ -192,6 +192,14 @@ public class DataStructuresIntroduction {
 		
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
 		
+		try {
+			Thread.sleep(3000);
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(invalidCode);
@@ -208,6 +216,14 @@ public class DataStructuresIntroduction {
 		String validCode = testdata.get(rowNumber).get("Valid code");
 		
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+		
+		try {
+			Thread.sleep(3000);
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		
