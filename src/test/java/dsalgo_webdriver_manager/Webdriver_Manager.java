@@ -16,7 +16,9 @@ import dsalgo_utilities.LoggerLoad;
 
 public class Webdriver_Manager {
 
-	private static WebDriver driver;
+	//private static WebDriver driver;
+	
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 	
 	public static WebDriver initializeDriver(String browser) {
 		
@@ -31,7 +33,8 @@ public class Webdriver_Manager {
 			chromeOptions.setAcceptInsecureCerts(false);
 			chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			chromeOptions.addArguments("start-maximized");
-			driver = new ChromeDriver(chromeOptions);
+			//chromeOptions.addArguments("--incognito");
+			driver.set(new ChromeDriver(chromeOptions));
 			break;
 			
 		case "firefox":
@@ -42,7 +45,8 @@ public class Webdriver_Manager {
 			firefoxOptions.setAcceptInsecureCerts(true);
 			firefoxOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			firefoxOptions.addArguments("start-maximized");
-			driver = new FirefoxDriver(firefoxOptions);		
+			//firefoxOptions.addArguments("--incognito");
+			driver.set(new FirefoxDriver(firefoxOptions));		
 			break;
 		
 		case "edge":
@@ -53,7 +57,8 @@ public class Webdriver_Manager {
 			edgeOptions.setAcceptInsecureCerts(true);
 			edgeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			edgeOptions.addArguments("start-maximized");
-			driver = new EdgeDriver(edgeOptions);		
+			//edgeOptions.addArguments("--incognito");
+			driver.set(new EdgeDriver(edgeOptions));		
 			break;
 		
 		case "safari":
@@ -63,7 +68,7 @@ public class Webdriver_Manager {
 			safariOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);	
 			safariOptions.setAcceptInsecureCerts(true);
 			safariOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
-			driver = new SafariDriver(safariOptions);		
+			driver.set( new SafariDriver(safariOptions));		
 			break;		
 			
 		case "headless":
@@ -73,14 +78,15 @@ public class Webdriver_Manager {
 			chromeOptions.setAcceptInsecureCerts(true);
 			chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("start-maximized");
+			//chromeOptions.addArguments("--incognito");
 			chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
-			driver = new ChromeDriver(chromeOptions);	
+			driver.set(new ChromeDriver(chromeOptions));	
 			break;
 		
 		default:
 			
 			LoggerLoad.warn("default switch case is getting executed: "+browser);
-			driver = new ChromeDriver();
+			driver.set(new ChromeDriver());
 			break;
 			
 		}
@@ -89,7 +95,8 @@ public class Webdriver_Manager {
 	}
 
 	public static WebDriver getDriver() {
-		return driver;
+		
+		return driver.get();
 	}
 	
 }

@@ -11,38 +11,59 @@ public class ConfigReader {
 	public Properties properties;
 
 	public final String configFilePath= "src/test/resources/config/config.properties";
+
+	private static String browser;
 			
 	public ConfigReader() {
-
-		File  configFile = new File(configFilePath);
-
-		try {
-
-		FileInputStream configFileReader = new FileInputStream(configFile);
-
-	    properties = new Properties();
-
-	      try {
-
-	    	  properties.load(configFileReader);
-
-	    	  configFileReader.close();
-
-	      } catch (IOException e) {
-	    	  
-	    	  e.printStackTrace();
-
-	      }
-	      
-		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
-
-	        throw new RuntimeException ("config.properties not found at config file path "+configFilePath);
-
-	      }
-	}
 		
+		loadProperties();
+		
+        if (browser == null) {
+        	
+            browser = properties.getProperty("browser"); 
+        }
+	}
+	
+	private void loadProperties() {
+		
+        File configFile = new File(configFilePath);
+
+        try (FileInputStream configFileReader = new FileInputStream(configFile)) {
+        	
+            properties = new Properties();
+            
+            properties.load(configFileReader);
+            
+        } catch (FileNotFoundException e) {
+        	
+            e.printStackTrace();
+            
+            throw new RuntimeException("config.properties not found at config file path " + configFilePath);
+            
+        } catch (IOException e) {
+        	
+            e.printStackTrace();
+        }
+        
+    }
+
+	public String getBrowser() {
+		
+		if(browser != null)
+
+			return browser;
+
+		else
+			throw new RuntimeException("browser not specified in the config.properties file");
+		
+	}
+
+	public void setBrowser(String browser) {
+		
+		ConfigReader.browser = browser;
+		
+	}
+	
 	public String getApplicationUrl() {
 
 		String applicationurl= properties.getProperty("url");
@@ -84,20 +105,7 @@ public class ConfigReader {
 			throw new RuntimeException("password not specified in the config.properties file");
 
 		}
-
-
-	public String getBrowser() {
-
-		String browser= properties.getProperty("browser");
-
-		if(browser != null)
-
-			return browser;
-
-		else
-			throw new RuntimeException("browser not specified in the config.properties file");
-
-	}
+	
 	
 	public String getExcelpath() {
 
