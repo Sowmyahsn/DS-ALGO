@@ -12,7 +12,7 @@ public class ConfigReader {
 
 	public final String configFilePath= "src/test/resources/config/config.properties";
 
-	private static String browser;
+	private String browser;
 			
 	public ConfigReader() {
 		
@@ -58,9 +58,9 @@ public class ConfigReader {
 		
 	}
 
-	public void setBrowser(String browser) {
+	public void setBrowser(String browserType) {
 		
-		ConfigReader.browser = browser;
+		browser = browserType;
 		
 	}
 	
