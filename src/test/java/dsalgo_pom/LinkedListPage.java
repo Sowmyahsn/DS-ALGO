@@ -74,7 +74,7 @@ public class LinkedListPage {
 	@FindBy(xpath = "//a[text()=\"Deletion\"]")
 	private WebElement DeletionSidePanelInLinkedList;
 
-	@FindBy(xpath = "//a[text()=\"Practice Questions\"]")
+	@FindBy(xpath = "//*[text()=\"Practice Questions\"]")
 	private WebElement PracticeQuestionsSidePanelInLinkedList;
 
 	// Submodules link
