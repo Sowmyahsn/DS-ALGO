@@ -26,7 +26,7 @@ public class DataStructuresIntroduction {
 	
 	ExcelReader reader = new ExcelReader();
 	
-	JavascriptExecutor javaScript;
+	JavascriptExecutor javaScript = (JavascriptExecutor)Webdriver_Manager.getDriver();;
 	
 	private String expectedResult;
 
@@ -125,8 +125,6 @@ public class DataStructuresIntroduction {
 	@When("The user clicks on Try here button")
 	public void the_user_clicks_on_try_here_button() {
 		
-		javaScript = (JavascriptExecutor)Webdriver_Manager.getDriver();
-		
 		javaScript.executeScript("arguments[0].scrollIntoView(true)", dsIntroPOM.getTryHereBtn());
 		
 		dsIntroPOM.getTryHereBtn().click();
@@ -192,14 +190,8 @@ public class DataStructuresIntroduction {
 		
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
 		
-		try {
-			Thread.sleep(1000);
-			
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
-		
+		javaScript.executeScript("arguments[0].click()", dsIntroPOM.getTryEditorTextarea());
+				
 		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(invalidCode);
@@ -217,13 +209,7 @@ public class DataStructuresIntroduction {
 		
 		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
 		
-		try {
-			Thread.sleep(1000);
-			
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
+		javaScript.executeScript("arguments[0].click()", dsIntroPOM.getTryEditorTextarea());
 		
 		dsIntroPOM.getTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl,"a", Keys.DELETE));
 		

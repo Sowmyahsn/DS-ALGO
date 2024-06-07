@@ -1,4 +1,10 @@
 package runner;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+import dsalgo_utilities.ConfigReader;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -16,7 +22,30 @@ import io.cucumber.testng.CucumberOptions;
 			glue= {"dsalgo_stepdefinition", "dsalgo_hooks"} ) // location of step definition files
 	
 
-public class Test_Runner extends AbstractTestNGCucumberTests{
-	
+	public class Test_Runner extends AbstractTestNGCucumberTests{
 		
-}
+	
+			@BeforeTest
+			
+			@Parameters ( "browser" )
+			
+			public void browserForCrossBrowserTest( @Optional("chrome") String browser) {
+	  
+				ConfigReader config = new ConfigReader();
+	  
+				config.setBrowser(browser); 
+				
+			}
+	  
+			@Override
+	  
+			@DataProvider(parallel = true) 
+			
+			public Object[][] scenarios() {
+	  
+				return super.scenarios();
+	  
+			}
+	 
+	}
+ 
