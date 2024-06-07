@@ -22,6 +22,11 @@ Feature: Verify Linked List module
   Scenario: Verify Side Navigation links in Introduction page
     When User is in the Introduction of Linked list page
     Then User should be able to validate "Side Navigation" links in LinkedList page
+    
+   @practicequest_sidenavigation
+   Scenario: Verify Practice Question Side Navigation Link
+   When User Clicks on Practice Question link
+   Then User should be able validate practice question page
 
   @linkedList_try_editor
   Scenario: Validate Try here button in Linked list page
@@ -57,13 +62,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @CreatingLinkedLIst_try_editor
+  @creatingLinkedLIst_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Creating Linked list page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @CreatingLinkedLIst_invalid_input
+  @creatingLinkedLIst_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Creating Linked list page
     When The user clicks on Try here button in Linked list page
@@ -77,7 +82,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @CreatingLinkedLIst_valid_input
+  @creatingLinkedLIst_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Creating Linked list page
     When The user clicks on Try here button in Linked list page
@@ -91,13 +96,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @TypesOfLinkedList_try_editor
+  @typesOfLinkedList_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Types of Linked list page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @TypesOfLinkedList_invalid_input
+  @typesOfLinkedList_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Types of Linked list page
     When The user clicks on Try here button in Linked list page
@@ -111,7 +116,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @TypesOfLinkedList_valid_input
+  @typesOfLinkedList_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Types of Linked list page
     When The user clicks on Try here button in Linked list page
@@ -125,13 +130,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Implement_Linked_List_in_Python_try_editor
+  @implement_Linked_List_in_Python_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Implement Linked List in Python page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @Implement_Linked_List_in_Python_invalid_input
+  @implement_Linked_List_in_Python_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Implement Linked List in Python page
     When The user clicks on Try here button in Linked list page
@@ -145,7 +150,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Implement_Linked_List_in_Python_valid_input
+  @implement_Linked_List_in_Python_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Implement Linked List in Python page
     When The user clicks on Try here button in Linked list page
@@ -159,13 +164,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Traversal_try_editor
+  @traversal_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Traversal page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @Traversal_invalid_input
+  @traversal_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Traversal page
     When The user clicks on Try here button in Linked list page
@@ -179,7 +184,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Traversal_valid_input
+  @traversal_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Traversal page
     When The user clicks on Try here button in Linked list page
@@ -193,13 +198,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Insertion_try_editor
+  @insertion_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Insertion page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @Insertion_invalid_input
+  @insertion_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Insertion page
     When The user clicks on Try here button in Linked list page
@@ -213,7 +218,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Insertion_valid_input
+  @insertion_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Insertion page
     When The user clicks on Try here button in Linked list page
@@ -227,13 +232,13 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Deletion_try_editor
+  @deletion_try_editor
   Scenario: Validate Try here button in Linked list page
     Given User is in the Deletion page
     When The user clicks on Try here button in Linked list page
     Then The user should be redirected to tryEditor page of Linked list page
 
-  @Deletion_invalid_input
+  @deletion_invalid_input
   Scenario Outline: Validate Try here button with invalid python code in Linked list
     Given User is in the Deletion page
     When The user clicks on Try here button in Linked list page
@@ -247,7 +252,7 @@ Feature: Verify Linked List module
       | Pythoncode |         0 |
       | Pythoncode |         1 |
 
-  @Deletion_valid_input
+  @deletion_valid_input
   Scenario Outline: Validate Try here button with valid python code in Linked list page
     Given User is in the Deletion page
     When The user clicks on Try here button in Linked list page

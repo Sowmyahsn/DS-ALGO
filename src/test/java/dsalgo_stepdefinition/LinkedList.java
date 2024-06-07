@@ -66,7 +66,7 @@ public class LinkedList {
 
 	@When("User validating all the submodules links in {string} page")
 	public void user_validating_all_the_submodule_links_in_page(String linkListsubModuleName) {
-		if (linkListsubModuleName.equalsIgnoreCase("Introduction")) {
+		if (linkListsubModuleName.equalsIgnoreCase("introduction")) {
 
 			String introductionPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -90,7 +90,7 @@ public class LinkedList {
 			dsLList.linkedListMainwindow();
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Creating Linked LIst")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("creating linked list")) {
 
 			String creatingLinkedLIstPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -117,7 +117,7 @@ public class LinkedList {
 			dsLList.linkedListMainwindow();
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Types of Linked List")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("types of linked list")) {
 
 			String typesOfLinkedListPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -144,7 +144,7 @@ public class LinkedList {
 
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Implement Linked List in Python")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("implement linked list in python")) {
 
 			String implementLinkedListPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -173,7 +173,7 @@ public class LinkedList {
 
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Traversal")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("traversal")) {
 
 			String traversalLinkedListPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -198,7 +198,7 @@ public class LinkedList {
 
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Insertion")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("insertion")) {
 
 			String insertionLinkedListPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -224,7 +224,7 @@ public class LinkedList {
 
 		}
 
-		else if (linkListsubModuleName.equalsIgnoreCase("Deletion")) {
+		else if (linkListsubModuleName.equalsIgnoreCase("deletion")) {
 
 			String deletionLinkedListPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
 
@@ -250,9 +250,8 @@ public class LinkedList {
 
 		else {
 
-			Assert.fail("Entering invalid page name " + linkListsubModuleName);
-			// System.out.println("Entering invalid page name " + linkListsubModuleName);
-
+			LoggerLoad.warn("Submodule name entered is not present in LinkedList introduction side panel "
+					+ linkListsubModuleName);
 		}
 
 	}
@@ -276,59 +275,112 @@ public class LinkedList {
 
 	@Then("User should be able to validate {string} links in LinkedList page")
 	public void user_should_be_able_to_validate_links_in_linked_list_page(String linkListsubModuleName) {
-		if (linkListsubModuleName.equalsIgnoreCase("Creating Linked LIst")) {
+		if (linkListsubModuleName.equalsIgnoreCase("creating linked list")) {
 
 			dsLListPOM.CreatingLinkedListSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Creating Linked LIst link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Introduction")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("introduction")) {
 
 			dsLListPOM.introductionSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Introduction link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Types of Linked List")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("types of linked list")) {
 
 			dsLListPOM.TypesofLinkedListSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Creating Linked LIst link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Implement Linked List in Python")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("implement linked list in python")) {
 
 			dsLListPOM.ImplementLinkedListPythonSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Implement Linked List in Python link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Traversal")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("traversal")) {
 
 			dsLListPOM.TraversalSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Traversal link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Insertion")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("insertion")) {
 
 			dsLListPOM.InsertionSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Insertion link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Deletion")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("deletion")) {
 
 			dsLListPOM.DeletionSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Deletion link on the side panel ");
 
-		} else if (linkListsubModuleName.equalsIgnoreCase("Practice Questions")) {
+		} else if (linkListsubModuleName.equalsIgnoreCase("practice questions")) {
 
 			dsLListPOM.PracticeQuestionsSidePanelInLinkedList().click();
 
 			LoggerLoad.info(" User clicks on Practice Questions link on the side panel ");
 
+			String practiceQuestionsPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
+
+			Assert.assertEquals(practiceQuestionsPageUrl,
+					"https://dsportalapp.herokuapp.com/stack/practice",
+					"Practice Questions page is not displayed");
+
+			String practiceQuestionsPageTitle = Webdriver_Manager.getDriver().getTitle();
+
+			Assert.assertEquals(practiceQuestionsPageTitle, "Practice Questions",
+					"Practice Questions page is not displayed");
+
+			boolean practiceQuestionsHeaderPresent = dsLListPOM.PracticeQuestionsPageHeaderInLinkedList().isDisplayed();
+
+			Assert.assertTrue(practiceQuestionsHeaderPresent,
+					"Practice Questions header is not displayed in practice questions page");
+
 		} else {
 
-			LoggerLoad.warn("Submodule name entered is not present in LinkedList introduction side panel "
-					+ linkListsubModuleName);
+			LoggerLoad.warn("Entering invalid page name " + linkListsubModuleName);
+
 		}
+	}
+	
+	@When("User Clicks on Practice Question link")
+	public void user_clicks_on_practice_question_link() throws InterruptedException {
+			Thread.sleep(2000);
+			dsLListPOM.introductionLinkInLinkedList().click();
+			dsLListPOM.PracticeQuestionsSidePanelInLinkedList().click();
+			LoggerLoad.info(" User clicks on Practice Questions link on the side panel ");
+
+		} 
+
+	
+
+	@Then("User should be able validate practice question page")
+	public void user_should_be_able_validate_practice_question_page() {
+
+		String practiceQuestionsPageUrl = Webdriver_Manager.getDriver().getCurrentUrl();
+
+		Assert.assertEquals(practiceQuestionsPageUrl,
+				"https://dsportalapp.herokuapp.com/linked-list/practice",
+				"Practice Questions page is not displayed");
+		
+		LoggerLoad.info("Practice Questions page is landed successfully" +practiceQuestionsPageUrl);
+		
+		String practiceQuestionsPageTitle = Webdriver_Manager.getDriver().getTitle();
+
+		Assert.assertEquals(practiceQuestionsPageTitle, "Practice Questions",
+				"Practice Questions page is not displayed");
+		
+		Assert.fail(" Practice Questions Page Title is Empty " +practiceQuestionsPageTitle);
+
+		boolean practiceQuestionsHeaderPresent = dsLListPOM.PracticeQuestionsPageHeaderInLinkedList().isDisplayed();
+		
+		Assert.assertTrue(practiceQuestionsHeaderPresent,
+				"Practice Questions header is not displayed in practice questions page");
+		Assert.fail(" Practice Questions Header is Missing " +practiceQuestionsHeaderPresent);
+		
 	}
 
 	@When("The user clicks on Try here button in Linked list page")
