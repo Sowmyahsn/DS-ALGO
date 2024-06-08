@@ -24,8 +24,8 @@ Feature: Verify Linked List module
     Then User should be able to validate "Side Navigation" links in LinkedList page
     
    @practicequest_sidenavigation
-   Scenario: Verify Practice Question Side Navigation Link
-   When User Clicks on Practice Question link
+   Scenario: Verify Practice Question Side Navigation Link in LinkedList page
+   When User Clicks on Practice Question link 
    Then User should be able validate practice question page
 
   @linkedList_try_editor
