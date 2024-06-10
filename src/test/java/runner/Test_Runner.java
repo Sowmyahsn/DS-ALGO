@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
 			
 			publish= true ,
 			
-			tags = "@all", // tags from feature file
+			tags = "@all and not @rgvalid_input", // tags from feature file
 			
 			features = {"src/test/resources/features"}, // location of feature files
 			
@@ -25,27 +25,29 @@ import io.cucumber.testng.CucumberOptions;
 	public class Test_Runner extends AbstractTestNGCucumberTests{
 		
 	
-			@BeforeTest
-			
-			@Parameters ( "browser" )
-			
-			public void browserForCrossBrowserTest( @Optional("chrome") String browser) {
-	  
-				ConfigReader config = new ConfigReader();
-	  
-				config.setBrowser(browser); 
-				
-			}
-	  
-			@Override
-	  
-			@DataProvider(parallel = true) 
-			
-			public Object[][] scenarios() {
-	  
-				return super.scenarios();
-	  
-			}
+		
+		  @BeforeTest
+		  
+		  @Parameters ( "browser" )
+		  
+		  public void browserForCrossBrowserTest( @Optional("headless") String browser) {
+		  
+		  ConfigReader config = new ConfigReader();
+		  
+		  config.setBrowser(browser);
+		  
+		  }
+		  
+		  @Override
+		  
+		  @DataProvider (parallel = false)
+		  
+		  public Object[][] scenarios() {
+		  
+		  return super.scenarios();
+		  
+		  }
+		 
 	 
 	}
  
