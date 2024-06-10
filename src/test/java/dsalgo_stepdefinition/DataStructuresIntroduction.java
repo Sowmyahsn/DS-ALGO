@@ -78,9 +78,7 @@ public class DataStructuresIntroduction {
 			
 			Assert.assertEquals(practiceQuestionsPageTitle,"Practice Questions", "Practice Questions page is not displayed");
 			
-			boolean practiceQuestionsHeaderPresent = dsIntroPOM.getPracticeQuestionsHeader().isDisplayed();
-			
-			Assert.assertTrue(practiceQuestionsHeaderPresent, "Practice Questions header is not displayed in practice questions page");
+			Assert.assertTrue( dsIntroPOM.getPracticeQuestionsHeader().isDisplayed() , "Practice Questions page is blank in Data structures Introduction module");
 			
 		}else {
 			
