@@ -89,7 +89,7 @@ public class Stack {
 			boolean operationsInStackHeaderPresent = dsStackPOM.operationsInStackHeaderPresent().isDisplayed();
 
 			Assert.assertTrue(operationsInStackHeaderPresent,
-					"Introduction header is not displayed in introdduction page");
+					"Introduction header is not displayed in introduction page");
 
 			LoggerLoad.info("User validates Introduction Page Header successfully" + operationsInStackHeaderPresent);
 
@@ -212,7 +212,7 @@ public class Stack {
 
 			dsStackPOM.applicapplicationsSidePanelLink().click();
 
-			LoggerLoad.info(" User clicks on OApplications link on the side panel ");
+			LoggerLoad.info(" User clicks on Applications link on the side panel ");
 
 		} else {
 
