@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +38,7 @@ public class Queue {
 	}
 
 	@Given("The user goes to Queue Page")
-	public void the_user_goes_to_queue_page() {
+	public void The_user_goes_to_queue_page() {
 		dsQueuePOM = new QueuePage();
 		dsQueuePOM.getStartedBtnForQueuePage().click();
 		LoggerLoad.info("User landed in Queue page successfully");
@@ -331,6 +333,14 @@ public class Queue {
 
 	@When("The user clicks on Try here button in Queue page")
 	public void the_user_clicks_on_try_here_button_in_queue_page() {
+		
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
 
 		dsQueuePOM.queueTryHereBtn().click();
 
@@ -359,6 +369,18 @@ public class Queue {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String invalidCode = testdata.get(rowNumber).get("Invalid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsQueuePOM.queueTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
 
 		dsQueuePOM.queueTryEditorTextarea().sendKeys(invalidCode);
 
@@ -407,6 +429,19 @@ public class Queue {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String validCode = testdata.get(rowNumber).get("Valid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsQueuePOM.queueTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
+
 
 		dsQueuePOM.queueTryEditorTextarea().sendKeys(validCode);
 
@@ -436,6 +471,14 @@ public class Queue {
 
 	@Given("User is in the Implementation using array page")
 	public void user_is_in_the_implementation_using_array_page() {
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		dsQueuePOM.imparrayLink().click();
 		LoggerLoad.info(" User is in Implementation using array page ");
 

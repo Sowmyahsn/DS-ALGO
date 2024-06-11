@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -170,6 +172,15 @@ public class Stack {
 
 	@Given("User clicks on Operations in Stack submodule link")
 	public void user_clicks_on_operations_in_stack_submodule_link() {
+		
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		dsStackPOM.operationsInStackLink().click();
 		LoggerLoad.info("User successfully landed in Operations in Stack page");
 	}
@@ -185,6 +196,14 @@ public class Stack {
 
 	@When("User is in the Operations in Stack page")
 	public void user_is_in_the_operations_in_stack_page() {
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		dsStackPOM.operationsInStackLink().click();
 		LoggerLoad.info(" User is in Operations in Stack page ");
 
@@ -258,6 +277,14 @@ public class Stack {
 	@When("The user clicks on Try here button in Stack page")
 	public void the_user_clicks_on_try_here_button_in_stack_page() {
 
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		dsStackPOM.stackTryHereBtn().click();
 
 		LoggerLoad.info(" User clicks on Try here button");
@@ -284,6 +311,19 @@ public class Stack {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String invalidCode = testdata.get(rowNumber).get("Invalid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsStackPOM.stackTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
+
 
 		dsStackPOM.stackTryEditorTextarea().sendKeys(invalidCode);
 
@@ -329,6 +369,19 @@ public class Stack {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String validCode = testdata.get(rowNumber).get("Valid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsStackPOM.stackTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
+
 
 		dsStackPOM.stackTryEditorTextarea().sendKeys(validCode);
 

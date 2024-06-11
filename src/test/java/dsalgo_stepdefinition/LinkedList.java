@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -60,7 +62,15 @@ public class LinkedList {
 	@Given("User clicks on Introduction submodule link")
 	public void user_clicks_on_inroduction_submodule_link() {
 
-		dsLListPOM.introductionLinkInLinkedList();
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
+		dsLListPOM.introductionLinkInLinkedList().click();;
 		LoggerLoad.info(" User clicks on Introduction link ");
 	}
 
@@ -268,8 +278,15 @@ public class LinkedList {
 
 	@When("User is in the Introduction of Linked list page")
 	public void user_is_in_the_introduction_of_linked_list_page() {
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		dsLListPOM.introductionLinkInLinkedList().click();
-		;
 		LoggerLoad.info(" User is in Introduction page ");
 	}
 
@@ -385,6 +402,14 @@ public class LinkedList {
 
 	@When("The user clicks on Try here button in Linked list page")
 	public void the_user_clicks_on_try_here_button_in_linked_list_page() {
+		
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
 
 		dsLListPOM.linkedlistTryHereBtn().click();
 
@@ -412,6 +437,18 @@ public class LinkedList {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String invalidCode = testdata.get(rowNumber).get("Invalid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsLListPOM.linkedlistTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
 
 		dsLListPOM.linkedlistTryEditorTextarea().sendKeys(invalidCode);
 
@@ -456,6 +493,18 @@ public class LinkedList {
 		List<Map<String, String>> testdata = reader.getData(sheetName);
 
 		String validCode = testdata.get(rowNumber).get("Valid code");
+		
+		Keys cmdCtrl = Platform.getCurrent().is(Platform.MAC) ? Keys.COMMAND : Keys.CONTROL;
+
+		try {
+			Thread.sleep(1000);
+
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		dsLListPOM.linkedlistTryEditorTextarea().sendKeys(Keys.chord(cmdCtrl, "a", Keys.DELETE));
 
 		dsLListPOM.linkedlistTryEditorTextarea().sendKeys(validCode);
 
