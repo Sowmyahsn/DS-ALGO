@@ -33,9 +33,9 @@ import io.cucumber.testng.CucumberOptions;
 		  
 		  public void browserForCrossBrowserTest( @Optional("headless") String browser) {
 		  
-		  ConfigReader config = new ConfigReader();
+			  ConfigReader config = new ConfigReader();
 		  
-		  config.setBrowser(browser);
+			  config.setBrowser(browser);
 		  
 		  }
 		  
@@ -45,7 +45,7 @@ import io.cucumber.testng.CucumberOptions;
 		  
 		  public Object[][] scenarios() {
 		  
-		  return super.scenarios();
+			  return super.scenarios();
 		  
 		  }
 		 
