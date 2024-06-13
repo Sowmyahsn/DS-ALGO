@@ -20,7 +20,7 @@ import io.cucumber.java.en.When;
 
 public class Stack {
 
-	static StackPage dsStackPOM;
+	StackPage dsStackPOM;
 	Stack dsStack;
 	ExcelReader reader;
 	private String expectedResult;

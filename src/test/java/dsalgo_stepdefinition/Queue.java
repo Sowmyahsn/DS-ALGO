@@ -22,7 +22,7 @@ import io.cucumber.java.en.When;
 
 public class Queue {
 
-	static QueuePage dsQueuePOM;
+	QueuePage dsQueuePOM;
 
 	StackPage dsstkpage;
 	Queue dsQueue;

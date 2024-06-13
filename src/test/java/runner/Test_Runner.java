@@ -31,7 +31,7 @@ import io.cucumber.testng.CucumberOptions;
 		  
 		  @Parameters ( "browser" )
 		  
-		  public void browserForCrossBrowserTest( @Optional("headless") String browser) {
+		  public void browserForCrossBrowserTest( @Optional("chrome") String browser) {
 		  
 			  ConfigReader config = new ConfigReader();
 		  

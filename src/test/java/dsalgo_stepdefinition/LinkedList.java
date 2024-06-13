@@ -20,7 +20,7 @@ import io.cucumber.java.en.When;
 
 public class LinkedList {
 
-	static LinkedListPage dsLListPOM;
+	LinkedListPage dsLListPOM;
 	LinkedList dsLList;
 	ExcelReader reader;
 	private String expectedResult;

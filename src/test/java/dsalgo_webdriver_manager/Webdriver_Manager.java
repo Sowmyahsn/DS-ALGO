@@ -33,7 +33,7 @@ public class Webdriver_Manager {
 			chromeOptions.setAcceptInsecureCerts(false);
 			chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			chromeOptions.addArguments("start-maximized");
-			//chromeOptions.addArguments("--incognito");
+			chromeOptions.addArguments("--headless");
 			driver.set(new ChromeDriver(chromeOptions));
 			break;
 			
@@ -45,7 +45,7 @@ public class Webdriver_Manager {
 			firefoxOptions.setAcceptInsecureCerts(true);
 			firefoxOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			firefoxOptions.addArguments("start-maximized");
-			//firefoxOptions.addArguments("--incognito");
+			firefoxOptions.addArguments("--headless");
 			driver.set(new FirefoxDriver(firefoxOptions));		
 			break;
 		
@@ -57,7 +57,7 @@ public class Webdriver_Manager {
 			edgeOptions.setAcceptInsecureCerts(true);
 			edgeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			edgeOptions.addArguments("start-maximized");
-			//edgeOptions.addArguments("--incognito");
+			edgeOptions.addArguments("--headless");
 			driver.set(new EdgeDriver(edgeOptions));		
 			break;
 		
@@ -70,18 +70,6 @@ public class Webdriver_Manager {
 			safariOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
 			driver.set( new SafariDriver(safariOptions));		
 			break;		
-			
-		case "headless":
-			
-			LoggerLoad.info("Launching chrome in headless mode : "+browser);	
-			chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);	
-			chromeOptions.setAcceptInsecureCerts(true);
-			chromeOptions.addArguments("--headless");
-			chromeOptions.addArguments("start-maximized");
-			//chromeOptions.addArguments("--incognito");
-			chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
-			driver.set(new ChromeDriver(chromeOptions));	
-			break;
 		
 		default:
 			
